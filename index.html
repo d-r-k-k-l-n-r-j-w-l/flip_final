@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flip</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Handwritten-looking font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- CLOSED BOOK / LANDING -->
+    <section id="landing" class="view view-landing">
+      <div class="sketch-frame">
+        <div id="bookCover" class="book book-closed">
+          <div class="book-label">Flip</div>
+          <div class="book-sub">tiny flipcards</div>
+          <div class="book-hint">click to open →</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPEN BOOK VIEW -->
+    <section id="bookView" class="view view-book hidden">
+      <!-- 2-step instructions -->
+      <div class="steps-wrapper">
+        <div class="steps-box sketch-outline">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-text">
+              Download and read the little zine I made for you.
+            </div>
+          </div>
+
+          <div class="step-divider"></div>
+
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-text">
+              Answer a few questions to get your
+              <span class="chuchu">invite</span>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sketch-frame book-open-frame">
+        <div class="book book-open">
+          <!-- LEFT PAGE: ZINE PREVIEW -->
+          <div class="page page-left">
+            <div class="page-title">short zine</div>
+            <div class="page-content page-content-pdf">
+              <!-- Image preview instead of PDF iframe -->
+              <img
+                src="zine-preview.png"
+                alt="zine preview"
+                class="zine-image"
+              />
+
+              <!-- Download button for the full zine PDF -->
+              <a
+                href="Happy 15 months my love.pdf"
+                download="Happy 15 months my love.pdf"
+                class="download-btn"
+              >
+                download full zine ⭳
+              </a>
+
+              <p class="tiny-note">
+                (the image is just a preview — the full zine is in the download)
+              </p>
+            </div>
+          </div>
+
+          <!-- RIGHT PAGE: INVITATION CARD -->
+          <div class="page page-right">
+            <div class="page-title">a little invitation</div>
+
+            <div id="inviteCard" class="invite-card">
+              <div class="tape tape-top"></div>
+              <div class="tape tape-bottom"></div>
+
+              <div class="invite-inner">
+                <p id="inviteMainText">
+                  I made this just for you. <br />
+                  Tap this note to answer a few questions to get your
+                  <span class="chuchu">invite</span>.
+                </p>
+                <p class="invite-hint">(click me!)</p>
+              </div>
+            </div>
+
+            <p id="nextTimeMessage" class="next-time-message hidden">
+              okay, next time then. <br />
+              I’ll plan another adventure for us.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVITATION MODAL -->
+    <div id="inviteModal" class="modal hidden">
+      <div class="modal-backdrop"></div>
+
+      <div class="modal-card sketch-outline" id="modalCard">
+        <button id="modalClose" class="modal-close" aria-label="Close">
+          ✕
+        </button>
+        <div class="modal-content">
+          <h2 class="modal-title">date invitation</h2>
+          <p id="questionText" class="modal-question">
+            <!-- injected from JS -->
+          </p>
+
+          <div class="modal-buttons">
+            <button id="yesBtn" class="btn btn-yes">Yes</button>
+            <button id="noBtn" class="btn btn-no">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
