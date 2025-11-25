@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const landing = document.getElementById("landing");
   const bookView = document.getElementById("bookView");
   const bookCover = document.getElementById("bookCover");
+  const bookFrame = document.getElementById("bookFrame");
 
   const inviteCard = document.getElementById("inviteCard");
   const nextTimeMessage = document.getElementById("nextTimeMessage");
@@ -31,8 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
   let step = 1;
 
   function showBook() {
-    landing.classList.add("hidden");
-    bookView.classList.remove("hidden");
+    // Add flip animation to the book frame
+    bookFrame.classList.add("book-flip");
+
+    // Wait for the flip animation to complete before showing the book view
+    bookFrame.addEventListener(
+      "animationend",
+      () => {
+        landing.classList.add("hidden");
+        bookView.classList.remove("hidden");
+      },
+      { once: true },
+    );
   }
 
   function openModal() {
